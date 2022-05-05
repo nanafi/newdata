@@ -6,32 +6,28 @@ console.log("This is working!");
   myConnector.getSchema = function (schemaCallback) {
     const covidCols = [
       {
-        id: "Date_of_report",
-        dataType: tableau.dataTypeEnum.date,
-      },
-      {
-        id: "Municipality_code",
+        id: "id",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Municipality_name",
+        id: "name",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Province",
+        id: "desc",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Total_reported",
-        dataType: tableau.dataTypeEnum.int,
+        id: "descData",
+        dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Hospital_admission",
-        dataType: tableau.dataTypeEnum.int,
+        id: "dateClosed",
+        dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Deceased",
-        dataType: tableau.dataTypeEnum.int,
+        id: "idOrganization",
+        dataType: tableau.dataTypeEnum.string,
       },
     ];
 
@@ -49,18 +45,17 @@ console.log("This is working!");
     var i = 0;
 
     $.getJSON(
-      "https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.json",
+      "https://trello.com/b/8yoByXhs.json",
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
           tableData.push({
-            Date_of_report: resp[i].Date_of_report,
-            Municipality_code: resp[i].Municipality_code,
-            Municipality_name: resp[i].Municipality_name,
-            Province: resp[i].Province,
-            Total_reported: resp[i].Total_reported,
-            Hospital_admission: resp[i].Hospital_admission,
-            Deceased: resp[i].Deceased,
+            id: resp[i].Date_of_report,
+            name: resp[i].Municipality_code,
+            desc: resp[i].Municipality_name,
+            descData: resp[i].Province,
+           dateClosed: resp[i].Hospital_admission,
+            idOrganization: resp[i].Deceased,
           });
         }
         table.appendRows(tableData);
