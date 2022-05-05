@@ -37,7 +37,7 @@ console.log("This is working!");
 
     let covidTableSchema = {
       id: "RIVM",
-      alias: "Dutch Corona Cases since start",
+      alias: "Corona Cases since start",
       columns: covidCols,
     };
 
@@ -75,6 +75,6 @@ console.log("This is working!");
 document.querySelector("#getData").addEventListener("click", getData);
 
 function getData() {
-  tableau.connectionName = "Dutch Corona Numbers";
+  tableau.connectionName = "Corona Numbers";
   tableau.submit();
 }
