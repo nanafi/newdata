@@ -17,23 +17,11 @@ console.log("This is working!");
         id: "desc",
         dataType: tableau.dataTypeEnum.string,
       },
-      {
-        id: "descData",
-        dataType: tableau.dataTypeEnum.string,
-      },
-      {
-        id: "dateClosed",
-        dataType: tableau.dataTypeEnum.string,
-      },
-      {
-        id: "idOrganization",
-        dataType: tableau.dataTypeEnum.string,
-      },
     ];
 
     let covidTableSchema = {
       id: "RIVM",
-      alias: "Dutch Corona Cases since start",
+      alias: "Data Trello Numbers since start",
       columns: covidCols,
     };
 
@@ -53,9 +41,6 @@ console.log("This is working!");
             id: resp[i].id,
             name: resp[i].name,
             desc: resp[i].desc,
-            descData: resp[i].descData,
-           dateClosed: resp[i].dateClosed,
-            idOrganization: resp[i].idOrganization,
           });
         }
         table.appendRows(tableData);
@@ -70,6 +55,6 @@ console.log("This is working!");
 document.querySelector("#getData").addEventListener("click", getData);
 
 function getData() {
-  tableau.connectionName = "Dutch Corona Numbers";
+  tableau.connectionName = "Data Trello Numbers";
   tableau.submit();
 }
